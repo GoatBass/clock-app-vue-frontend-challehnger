@@ -16,6 +16,14 @@ const app = Vue.createApp({
 
         getDataTime(data){
             this.dataTimeApi = data
+        },
+
+        dateFormat(hour){
+            let timestamp = Date.parse(hour)
+            return new Date(timestamp).toLocaleTimeString(navigator.language, {
+                hour: '2-digit',
+                minute:'2-digit'
+              });
         }
     },
 
