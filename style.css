@@ -3,3 +3,6 @@ body{
     color: white;
 }
 
+#updateQuote{
+    cursor: pointer;
+}
