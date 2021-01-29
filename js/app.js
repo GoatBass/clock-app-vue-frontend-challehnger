@@ -8,6 +8,7 @@ const app = Vue.createApp({
             quote: '',
             showMoreInfo: false,
             isNightTime: false,
+            backgrounImg: ''
         }
     },
 
@@ -44,24 +45,24 @@ const app = Vue.createApp({
                 document.querySelector('#quote').classList.add('slide-top')
                 document.querySelector('#time').classList.add('slide-top')
                 document.querySelector('#buttons').classList.add('slide-top')
-                document.querySelector('#moreInfo').classList.add('slide-top')
+                document.querySelector('#moreInfo').classList.add('slide-top-info')
 
                 document.querySelector('#quote').classList.remove('slide-down')
                 document.querySelector('#time').classList.remove('slide-down')
                 document.querySelector('#buttons').classList.remove('slide-down')
-                document.querySelector('#moreInfo').classList.remove('slide-down')
+                document.querySelector('#moreInfo').classList.remove('slide-down-info')
 
             } else {
                 this.showMoreInfo = !this.showMoreInfo
                 document.querySelector('#quote').classList.remove('slide-top')
                 document.querySelector('#time').classList.remove('slide-top')
                 document.querySelector('#buttons').classList.remove('slide-top')
-                document.querySelector('#moreInfo').classList.remove('slide-top')
+                document.querySelector('#moreInfo').classList.remove('slide-top-info')
 
                 document.querySelector('#quote').classList.add('slide-down')
                 document.querySelector('#time').classList.add('slide-down')
                 document.querySelector('#buttons').classList.add('slide-down')
-                document.querySelector('#moreInfo').classList.add('slide-down')
+                document.querySelector('#moreInfo').classList.add('slide-down-info')
 
             }
            
@@ -76,11 +77,11 @@ const app = Vue.createApp({
             
             if(parseInt(datee.substring(0, 2)) >= 9 && parseInt(datee.substring(0, 2)) <= 20){
                 this.isNightTime = !this.isNightTime
-                document.querySelector('body').style.backgroundImage = 'url(../assets/desktop/bg-image-daytime-darker2.png'
+                this.backgroundImg = 'url(../assets/desktop/bg-image-daytime-darker2.png'
                 return "Good Morning, it's currently "
             } else {
                 this.isNightTime = !this.isNightTime
-                document.querySelector('body').style.backgroundImage = 'url(../assets/desktop/bg-image-nightime-darker.png'
+                this.backgroundImg = 'url(../assets/desktop/bg-image-nightime-darker.png'
                 return "Good Night, it's currently "
             }
         }

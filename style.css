@@ -2,12 +2,12 @@ html {
     overflow: hidden;
 }
 
-body{
+body {
     font-family: 'Inter', sans-serif;
     color: white;
 }
 
-#updateQuote{
+#updateQuote {
     cursor: pointer;
 }
 
@@ -15,15 +15,68 @@ body{
     cursor: pointer;
 }
 
+#moreInfo {
+    transform: translateY(250px);
+}
+
 .slide-top {
-	-webkit-animation: slide-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: slide-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    -webkit-animation: slide-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-top-info {
+    -webkit-animation: slide-top-info 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-top-info 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .slide-down {
-	-webkit-animation: slide-down 1s cubic-bezier(.25,.46,.45,.94) both;
-	        animation: slide-down 1s cubic-bezier(.25,.46,.45,.94) both;
+    -webkit-animation: slide-down 1s cubic-bezier(.25, .46, .45, .94) both;
+    animation: slide-down 1s cubic-bezier(.25, .46, .45, .94) both;
 }
 
-@keyframes slide-top{0%{transform:translateY(0)}100%{transform:translateY(-250px)}}
-@keyframes slide-down{0%{transform:translateY(-250px)}100%{transform:translateY(0px)}}
+.slide-down-info {
+    -webkit-animation: slide-down-info 1s cubic-bezier(.25, .46, .45, .94) both;
+    animation: slide-down-info 1s cubic-bezier(.25, .46, .45, .94) both;
+}
+
+@keyframes slide-top {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-250px);
+    }
+}
+
+@keyframes slide-top-info {
+    0% {
+        transform: translateY(250px);
+    }
+
+    100% {
+        transform: translateY(-250px);
+    }
+}
+
+@keyframes slide-down {
+    0% {
+        transform: translateY(-250px);
+    }
+
+    100% {
+        transform: translateY(0);
+
+    }
+}
+
+@keyframes slide-down-info {
+    0% {
+        transform: translateY(-250px);
+    }
+
+    100% {
+        transform: translateY(250px);
+
+    }
+}
