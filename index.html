@@ -19,32 +19,35 @@
 
 </head>
 
-<body class="bg-local bg-no-repeat bg-cover" style="background-image: url(../assets/desktop/bg-image-daytime-darker2.png)">
+<body class="bg-fixed bg-no-repeat bg-cover" >
   <div id="app">
-    <div class="grid grid-cols-2 grid-rows-1 place-content-start ml-40 auto-rows-min" >
-      <div class="col-start-1 col-end-3 pb-40 px-6 pt-40 self-start w-3/6">
-        <img @click="updateQuote" id="updateQuote" src="assets/desktop/icon-refresh.svg" class="mb-4">
+    <div class="grid md:grid-cols-2 md:grid-rows-1 place-content-start md:ml-40" >
+      <div id="quote" class="md:col-start-1 md:col-end-3 md:pb-40 md:px-6 md:pt-16 pt-12 px-12 md:self-start text-center md:text-left md:w-3/6">
+        <img @click="updateQuote" id="updateQuote" src="assets/desktop/icon-refresh.svg" class="mb-4 inline-block">
         <p class="text-xl">{{ quote.content }}</p>
         <h2 class="text-2xl font-bold mt-2 italic">{{ quote.author }}</h2>
       </div>
-      <div class="pb-40 px-6 pt-16 ">
-          <p class="text-2xl uppercase tracking-wider	"><img class="mb-6" src="/assets/desktop/icon-sun.svg">Good morning, it's currently</p>
+      <div id="time" class="pb-12 px-6 pt-20 text-center md:text-left">
+        <img v-show="!isNightTime" class="pb-1.5 pr-1 inline-block" src="/assets/desktop/icon-sun.svg">
+        <img v-show="isNightTime" class="pb-1.5 pr-1 inline-block" src="/assets/desktop/icon-moon.svg">  
+        <p class="text-2xl uppercase tracking-wider	">{{ isNight }}</p>
           <p class="font-bold	text-9xl py-4">{{dateFormat(dataTimeApi.datetime)}}</p>
           <!-- <p>IP Address: {{dataIpApi.ip}} </p> -->
           <p class="text-2xl uppercase font-bold tracking-wider">IN {{dataIpApi.region_name}} , {{dataIpApi.country_code}} </p>
       </div>
-      <div class="col-start-2 row-start-2 place-self-end pb-40 pr-52">
-        <a href="#moreInfo" @click="toggleInfo"><img src="/assets/desktop/more_button.png" v-show="!showMoreInfo"><img src="/assets/desktop/less_button.png" v-show="showMoreInfo"></a>
+      <div id="buttons" class="md:col-start-2 md:row-start-2 place-self-end pb-48 md:pb-12 pr-52">
+        <a @click="toggleInfo"><img src="/assets/desktop/more_button.png" v-show="!showMoreInfo"><img src="/assets/desktop/less_button.png" v-show="showMoreInfo"></a>
       </div>
     </div>
-    <div class="grid grid-cols-2 grid-rows-2 gap-x-20 gap-y-8 mx-atuo my-0 p-32 bg-gray-300 text-black" id="moreInfo" v-show="showMoreInfo">
-      <div><p class="uppercase text-xl tracking-wider">current timezone</p><br><p class="capitalize text-6xl font-bold">{{ dataTimeApi.timezone }}</p></div>
-      <div><p class="uppercase text-xl tracking-wider">day of the week</p><br><p class="capitalize text-6xl font-bold">{{ dataTimeApi.day_of_week }}</p></div>
-      <div><p class="uppercase text-xl tracking-wider">day of the year</p><br><p class="capitalize text-6xl font-bold">{{ dataTimeApi.day_of_year }}</p></div>
-      <div><p class="uppercase text-xl tracking-wider">week number</p><br><p class="capitalize text-6xl font-bold">{{ dataTimeApi.week_number }}</p></div>
+    <div class="grid grid-cols-2 grid-rows-2 gap-x-12 gap-y-4 md:gap-x-20 md:gap-y-8 mx-atuo my-0 p-8 md:p-32 bg-gray-300 text-black" id="moreInfo" v-show="showMoreInfo">
+      <div><p class="uppercase text-xl tracking-wider">current timezone</p><br><p class="capitalize text-3xl md:text-6xl font-bold">{{ dataTimeApi.timezone }}</p></div>
+      <div><p class="uppercase text-xl tracking-wider">day of the week</p><br><p class="capitalize text-3xl md:text-6xl font-bold">{{ dataTimeApi.day_of_week }}</p></div>
+      <div><p class="uppercase text-xl tracking-wider">day of the year</p><br><p class="capitalize text-3xl md:text-6xl font-bold">{{ dataTimeApi.day_of_year }}</p></div>
+      <div><p class="uppercase text-xl tracking-wider">week number</p><br><p class="capitalize text-3xl md:text-6xl font-bold">{{ dataTimeApi.week_number }}</p></div>
       
     </div>
   </div>
+  <script src="/path/to/slidr.min.js"></script>
   <script src="js/request.js"></script>
 </body>
 
