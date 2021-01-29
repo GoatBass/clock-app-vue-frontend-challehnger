@@ -1,6 +1,6 @@
 const Requests = {
     getTimeFromJSON(ip, cb){
-        const url = 'http://worldtimeapi.org/api/ip/' + ip
+        const url = 'https://worldtimeapi.org/api/ip/' + ip
         fetch(url).then(response => response.json()).
         then(result => cb(result)).
         catch(error => console.log('An error has occured: ', error))
