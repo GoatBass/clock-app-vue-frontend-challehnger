@@ -7,7 +7,7 @@ const Requests = {
     },
 
     getIpFromJSON(cb){
-        const url = 'https://freegeoip.app/json/'
+        const url = 'https://ipapi.co/json/'
         fetch(url).then(response => response.json()).
         then(result => cb(result)).
         catch(error => console.log('An error has happened: ',error))
